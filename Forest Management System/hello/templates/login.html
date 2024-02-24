@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}
+Login
+{% endblock %}
+{% block content %}
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#f").submit(function(e)
+    {
+      e.preventDefault();
+      cust_name=$("#cust_name").val()
+      password=$("#password").val()
+      $.get("http://127.0.0.1:8000/ulogin", {cust_name:cust_name,password:password}).done(function(data)
+      {
+        $("body").html(data) 
+      });
+    });
+  });
+</script>
+<div class="w3-card-4">
+    <div class="w3-container  w3-center w3-allerta" style="background-color: #35E6A3;">
+      <p class="w3-xlarge" style="background-color: #35E6A3;"><b>USER LOGIN</b></p>
+    </div>
+    
+    <form action="/action_page.php" class="w3-container w3-padding-16" id="f">
+      <p>      
+        <label class="w3-text-black" style="line-height: 2.5;"><b>User name</b></label>
+        <input class="w3-input w3-border" style="width: 100%" name="cust_name" id="cust_name" type="text" placeholder="Enter User name">
+      </p>
+      
+      <p>      
+        <label class="w3-text-black" style="line-height: 2.5;"><b>Password</b></label>
+        <input class="w3-input w3-border" style="width: 100%" name="password" id="password" type="password" placeholder="Enter password">
+      </p>
+      <span class="w3-right w3-padding"><a href="/cpass">Forgot password?</a></span>
+      <p>
+       <div class="w3-container w3-center w3-padding-16">
+         <button class="w3-button" type="submit" style="background-color: #35E6A3; border-color: #35E6A3; color: white; margin-right: 20px;">Login</button>
+         <button class="w3-button" style="background-color: #35E6A3; border-color: #35E6A3; color:white; margin-right: 20px">Reset</button>
+       </div>
+     </p> 
+     <p>
+        You don't have an account? <a href="/user"><font style="color: blue;">Register here</font></a>.
+     </p>
+      </div>
+    </div>
+ </form>
+</div>
+{% endblock %}

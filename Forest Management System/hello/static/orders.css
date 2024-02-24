@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .w3-container{
+    background-color:aliceblue;
+   }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #35E6A3;;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+      color: black;
+  
+  }
+  
+    form.example input[type=text] {
+    padding: 10px;
+    font-size: 10px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 10px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

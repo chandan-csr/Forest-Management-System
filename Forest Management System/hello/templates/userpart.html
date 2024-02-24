@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}
+Orders
+{% endblock %}
+{% block content %}
+{% load static %}
+<div class="w3-card-4">
+    <div class="w3-container  w3-center w3-allerta" style="background-color:aliceblue;">
+      <div class= "w3-padding-16">
+         <p> <b>To get pass click here :</b> </p>
+         <a href="/upass"><button class="w3-button" style="background-color: #35E6A3; border-color: #35E6A3; color: white; margin-right: 20px;">PASS</button></a>
+      </div>
+      <div class="w3-padding-16">
+         <p> <b>To order click here : </b></p>
+         <a href="/order"><button class="w3-button" style="background-color: #35E6A3; border-color: #35E6A3; color: white; margin-right: 20px;">ORDER</button></a>
+      </div>
+      <div class="w3-padding-16">
+         <p> <b>To order history click here : </b></p>
+         <a href="/orderhistory"><button class="w3-button" style="background-color: #35E6A3; border-color: #35E6A3; color: white; margin-right: 20px;">ORDER HISTORY</button></a>
+      </div>
+      <br>
+      <br>
+    </div>
+</div>
+{% endblock %}

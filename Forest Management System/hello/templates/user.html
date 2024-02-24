@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block title %}
+User registration
+{% endblock %}
+{% block content %}
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#f").submit(function(e)
+    {
+      e.preventDefault();
+      cust_name=$("#cust_name").val()
+      password=$("#password").val()
+      address=$("#address").val()
+      phone=$("#phone").val()
+      email=$("#email").val()
+      $.get("http://127.0.0.1:8000/uuser/",{cust_name:cust_name,password:password,address:address,phone:phone,email:email}).done(function(data)
+      {
+        $("body").html(data) 
+      });
+    });
+  });
+</script>
+  <div class="w3-card-4">
+    <div class="w3-container w3-center w3-allerta" style="background-color: #35E6A3;">
+    <p class="w3-xlarge" style="background-color: #35E6A3;"><b>USER</b></p>
+    </div>
+      
+      <form action="/action_page.php" class="w3-container w3-padding-16" id="f">
+        <p>      
+         <label class="w3-text-black" style="line-height: 2.5;"><b>Cust_name</b></label>
+         <input class="w3-input w3-border" style="width: 100%" name="cust_name" id="cust_name" type="text" placeholder="Enter customer name">
+        </p>
+        <p>      
+         <label class="w3-text-black" style="line-height: 2.5;"><b>Password</b></label>
+         <input class="w3-input w3-border" style="width: 100%" name="password" id="password" type="password" placeholder="Enter password">
+        </p>
+        <p>      
+         <label class="w3-text-black" style="line-height: 2.5;"><b>Address</b></label>
+         <input class="w3-input w3-border" style="width: 100%" name="address" id="address" type="text" placeholder="Enter your full address">
+        </p>
+        <p>      
+         <label class="w3-text-black" style="line-height: 2.5;"><b>Phone</b></label>
+         <input class="w3-input w3-border" style="width: 100%" name="phone" id="phone" type="number" placeholder="Enter your phone no">
+        </p>
+        <p>      
+         <label class="w3-text-black" style="line-height: 2.5;"><b>Email</b></label>
+         <input class="w3-input w3-border" style="width: 100%" name="email" id="email" type="email" placeholder="Enter your email">
+        </p>
+        <p>
+          <div class="w3-container w3-center w3-padding-16">
+            <button class="w3-button" type="submit" style="background-color: #35E6A3; border-color: #35E6A3; color: white; margin-right: 20px;">Submit</button>
+            <button class="w3-button" style="background-color: #35E6A3; border-color: #35E6A3; color:white; margin-right: 20px">Reset</button>
+          </div>
+        </p>
+          <p>
+            Already have an account? <a href="/login"><font style="color: blue;">Login</font></a>.
+          </p>
+      </form>
+    </div> 
+{% endblock %}

@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'layout.css' %}"/>   
+    <link rel="stylesheet" type="text/css" href="{% static 'user.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'orders.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'orderhistory.css' %}"/>
+</head>
+<body background="{% static 'images/bg.png' %}" >
+  <div id="top">
+    <center><h1><font color=#35E6A3;>FOREST MANAGEMENT</font></h2></center>
+  </div>
+    <div id="navbar">
+        <div class="topnav" id="myTopnav">
+          <a href="/home/#top" class="active"><i class="fa fa-fw fa-home"></i> Home</a>
+          <a href="/admin"><i class="fa fa-fw fa-user"> </i>Admin</a>
+          <a href="/user"><i class="fa fa-fw fa-user"> </i>User</a>
+          <a href="/home/#about"><i class="fa fa-info-circle"> </i> About</a>
+          <a href="/home/#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+    </div>
+
+<div class="body-content">
+    {% block content %}
+    {% endblock %}
+    <hr/>
+    <footer>
+        <center><p><b>Copyright &copy; Forest Management 2021.</b> All rights are reserved.</p></center>
+    </footer>
+</div>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  
+  <script>
+    window.onscroll = function() {myNav()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    
+    function myNav() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+    </script>
+    
+</body>
+</html>

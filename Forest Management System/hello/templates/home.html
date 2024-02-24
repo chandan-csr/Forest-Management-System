@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block title %}
+Forest Management
+{% endblock %}
+{% block content %}
+{% load static %}
+<div class="mySlides w3-display-container w3-center">
+    <img src="{% static 'images/f1.jpg' %}"  style="width:100%">
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="{% static 'images/f2.jpg' %}" style="width:100%">
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="{% static 'images/f3.jpg' %}" style="width:100%">
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="{% static 'images/f4.jpg' %}" style="width:100%">
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="{% static 'images/f5.jpg' %}" style="width:100%">
+  </div>
+  <div id="about">
+  <br>
+  <br>
+  <br>
+  <br>
+  <center><h2 id="about"><font color=#35E6A3;>ABOUT</font></h2>
+  <div class="txtab"  style="width:90%">
+   <p class="big">Forest management is a branch of forestry concerned with overall administrative, legal, economic,
+    and social aspects, as well as scientific and technical aspects, such as silviculture, protection, and
+    forest regulation. This includes management for timber, aesthetics, recreation, urban values, water,
+    wildlife, inland and nearshore fisheries, wood products, plant genetic resources, and other forest
+    resource values.
+    Management objectives can be for conservation, utilisation, or a mixture of the
+    two. Techniques include timber extraction, planting and replanting of different species, building and
+    maintenance of roads and pathways through forests, and preventing fire.
+  
+    The forest is a natural system that can supply different products and services. Forests supply water,
+    mitigate climate change, provide habitats for wildlife including many pollinators which are essential
+    for sustainable food production, provide timber and fuelwood, serve as a source of non-wood forest
+    products including food and medicine, and contribute to rural livelihoods.
+  
+    The working of this system is influenced by the natural environment: climate, topography, soil, etc.,
+    and also by human activity. The actions of humans in forests constitute forest management. In
+    developed societies, this management tends to be elaborated and planned in order to achieve the
+    objectives that are considered desirable.
+    Some forests have been and are managed to obtain traditional forest products such as firewood,
+    fiber for paper, and timber, with little thinking for other products and services. Nevertheless, as a
+    result of the progression of environmental awareness, management of forests for multiple use is
+    becoming more common.
+    </p></div>
+  </center>
+</div>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <center><h2 id="contact"><font color=#35E6A3;>CONTACT</font></h2>
+  <div style="width:90%">
+   <p class="big">      
+    <i class="fa fa-map-marker" style="width:30px"></i>Karnataka, INDIA<br>
+    <i class="fa fa-phone" style="width:30px"></i>Phone: +91 9988776655<br>
+    <i class="fa fa-envelope" style="width:30px"></i>Email: forestfsm@gmail.com<br>
+    </p>
+  </div>
+  </center>
+  <br>
+  <br>
+  <br>
+    
+    <script>
+      var myIndex = 0;
+      carousel();
+      
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 3000);    
+      }
+    </script>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+{% endblock %}

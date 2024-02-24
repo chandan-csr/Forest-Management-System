@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}
+Orders
+{% endblock %}
+{% block content %}
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+
+      $.get("http://127.0.0.1:8000/orders/",{ }).done(function(data)
+      {
+        $("#res").html(data) 
+      });
+    });
+</script>
+
+<div class="w3-card-4">
+    <div class="w3-container  w3-center w3-allerta" style="background-color: #35E6A3;">
+      <p class="w3-xlarge" style="background-color: #35E6A3;"><b>PRODUCTS</b></p>
+    </div>
+
+  <div class="w3-container" id="res">
+      <br>
+   <div class="row">
+   <div class="column"> 
+    <div class="card">
+        <img src="{%static 'images/1.jpg' %}" alt="MALVA NUTS" style="width:100%">
+        <h3>Malva Nuts</h3>
+        <p class="price">800</p>
+        <p>Sterculia Lychnophora/Malvas Nuts - 100 GM.</p>
+        <button type="button" id="ordnow">Buy</button></p>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock %}

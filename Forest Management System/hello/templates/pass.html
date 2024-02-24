@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}
+Visitors Pass
+{% endblock %}
+{% block content %}
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#f").submit(function(e)
+    {
+      e.preventDefault();
+      date_of_visit=$("#date_of_visit").val()
+      price=$("#price").val()
+      $.get("http://127.0.0.1:8000/uupass/",{date_of_visit:date_of_visit,price:price}).done(function(data)
+      {
+        $("body").html(data) 
+      });
+    });
+  });
+</script>
+<div class="w3-card-4">
+    <div class="w3-container  w3-center w3-allerta" style="background-color: #35E6A3;">
+      <p class="w3-xlarge" style="background-color: #35E6A3;"><b>VISITORS PASS</b></p>
+    </div>
+    <form action="/action_page.php" class="w3-container w3-padding-16" id="f">
+      <p>   
+         <label class="w3-text-black" style="line-height: 2.5;"><b>Date_of_visit</b></label>
+         <input class="w3-input w3-border" style="width: 100%" name="date_of_visit" id="date_of_visit" type="date" placeholder="Enter date of visit">
+      </p>
+      
+      <p>      
+         <label class="w3-text-black" style="line-height: 2.5;"><b>Price</b></label>
+         <input class="w3-input w3-border"  style="width: 100%" name="price" id="price" value="100" type="number" placeholder="Enter the price">
+      </p>
+    
+      <p>
+         <div class="w3-container w3-center w3-padding-16">
+          <button class="w3-button" type="submit" style="background-color: #35E6A3; border-color: #35E6A3; color: white; margin-right: 20px;" id="sndBtn">Buy</button>
+            <button class="w3-button" style="background-color: #35E6A3; border-color: #35E6A3; color:white; margin-right: 20px">Reset</button>
+         </div>
+      </p> 
+    </form>
+  </div>
+  {% endblock %}
